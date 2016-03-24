@@ -1,6 +1,6 @@
-# Base EFM32 CMake file
+# Base STM32F4 CMake file
 #
-# This can be used as is as a project base, or by adding the efm32-base
+# This can be used as is as a project base, or by adding the stm32f4-base
 # repository as a submodule to another project, copying this CMakeLists file
 # to the top level directory, and updating the BASE_LOCATION variable to reflect this
 # change
@@ -8,13 +8,10 @@
 ###### Project Environment #####
 
 # Set minimum CMake version
-cmake_minimum_required(VERSION 2.8.4)
-
-# Set efm32-base project location
-set(BASE_LOCATION .)
+cmake_minimum_required(VERSION 3.3)
 
 # Set the compiler (must be prior to project setup)
-include(${BASE_LOCATION}/toolchain/arm-gcc.cmake)
+include(./toolchain/arm-gcc.cmake)
 
 ##### Project Setup #####
 
@@ -44,12 +41,12 @@ endif()
 # or manually included here.
 
 # Add base libs (emlib, CMSIS, device files)
-include(${BASE_LOCATION}/toolchain/stm32-base.cmake)
+include(${PROJECT_SOURCE_DIR}/toolchain/stm32-base.cmake)
 
 ##### Files #####
 
 # Add project files
-include(${BASE_LOCATION}/example/example.cmake)
+include(${PROJECT_SOURCE_DIR}/example/example.cmake)
 
 ##### Outputs #####
 
@@ -60,8 +57,8 @@ target_link_libraries(${TARGET} ${LIBS})
 ##### Post build #####
 
 # Add post build commands
-include(${BASE_LOCATION}/toolchain/post-build.cmake)
+include(${PROJECT_SOURCE_DIR}/toolchain/post-build.cmake)
 
 # Add JLink commands
-include(${BASE_LOCATION}/toolchain/jlink.cmake)
+include(${PROJECT_SOURCE_DIR}/toolchain/jlink.cmake)
 

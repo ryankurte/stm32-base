@@ -1,13 +1,17 @@
 # CMSIS cmake inclusion file
 # Adds CMSIS headers to the build
 
-# Add the CMSIS headers
-include_directories(${CMAKE_CURRENT_LIST_DIR}/Inc)
 
 set(DEVICE_BASE "${CMAKE_CURRENT_LIST_DIR}/Device/ST/${CPU_FAMILY_U}xx")
 
+# Add the CMSIS headers
+include_directories(
+	${CMAKE_CURRENT_LIST_DIR}/Include
+	${DEVICE_BASE}/Include
+	)
+
 # Find startup file
-file(GLOB STARTUP_FILE "${DEVICE_BASE}/Source/Templates/gcc/" startup_${CPU_FAMILY_L}*.s)
+file(GLOB STARTUP_FILE ${DEVICE_BASE}/Source/Templates/gcc/startup_${CPU_TYPE_L}*.s)
 message("Startup file: ${STARTUP_FILE}")
 
 # Set system file name

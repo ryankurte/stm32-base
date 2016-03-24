@@ -5,9 +5,7 @@
 include_directories(${CMAKE_CURRENT_LIST_DIR}/Inc)
 
 # Find hal source files
-file(GLOB HAL_SOURCES ${CMAKE_CURRENT_LIST_DIR}/Src *.c)
-
-message("Hal sources: ${HAL_SOURCES}")
+file(GLOB HAL_SOURCES ${CMAKE_CURRENT_LIST_DIR}/Src/*.c)
 
 # Create hal library
 add_library(hal ${HAL_SOURCES})
