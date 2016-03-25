@@ -21,7 +21,7 @@ message("Type: ${CPU_TYPE_U}")
 # Check for required processor info
 # TODO: wonder if I could parse (most of) this from the config files
 if(NOT DEFINED FLASH_START)
-set(FLASH_START 0x00000000)
+set(FLASH_START 0x08000000)
 message("No FLASH_START defined. Using default: ${FLASH_START}")
 endif(NOT DEFINED FLASH_START)
 
@@ -89,5 +89,4 @@ set(COMMON_RELEASE_FLAGS "${OPTFLAGS} -DNDEBUG=1 -DRELEASE=1")
 set(CMAKE_C_FLAGS_RELEASE 	"${COMMON_RELEASE_FLAGS}")
 set(CMAKE_CXX_FLAGS_RELEASE "${COMMON_RELEASE_FLAGS}")
 set(CMAKE_ASM_FLAGS_RELEASE "${COMMON_RELEASE_FLAGS}")
-
 

@@ -32,6 +32,8 @@ set(BSP_COMPONENTS "Common;ili9341;stmpe811")
 set(FATFS_DRIVER usbh_diskio)
 set(USB_HOST_CLASS MSC)
 
+set(USE_STLINK ON)
+
 # Set build
 if(NOT CMAKE_BUILD_TYPE)
 set(CMAKE_BUILD_TYPE DEBUG)
@@ -56,11 +58,16 @@ include(${PROJECT_SOURCE_DIR}/example/example.cmake)
 add_executable(${TARGET} ${PROJECT_SOURCES})
 target_link_libraries(${TARGET} ${LIBS})
 
-##### Post build #####
+##### Post build (require target to be defined) #####
 
 # Add post build commands
 include(${PROJECT_SOURCE_DIR}/toolchain/post-build.cmake)
 
 # Add JLink commands
-include(${PROJECT_SOURCE_DIR}/toolchain/jlink.cmake)
+if(USE_STLINK)
+include(${PROJECT_SOURCE_DIR}/toolchain/stlink.cmake)
+endif()
 
+if(USE_JLINK)
+include(${PROJECT_SOURCE_DIR}/toolchain/stlink.cmake)
+endif()
