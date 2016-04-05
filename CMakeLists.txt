@@ -8,7 +8,7 @@
 ###### Project Environment #####
 
 # Set minimum CMake version
-cmake_minimum_required(VERSION 3.3)
+cmake_minimum_required(VERSION 2.8)
 
 # Set the compiler (must be prior to project setup)
 include(./toolchain/arm-gcc.cmake)
