@@ -9,7 +9,7 @@ Based on [ryankurte/efm32-base](https://github.com/ryankurte/efm32-base).
  - Getting started with Microcontrollers is hard (and time consuming)
  - Vendor IDEs are ultimately useless when approaching testing and build-automation
 
-This project addresses this by providing a common base for for projects using Silicon Labs EFM32 processors.
+This project addresses this by providing a common base for for projects using STM32F4 processors.
 
 ## Dependencies
  - cmake
@@ -18,7 +18,7 @@ This project addresses this by providing a common base for for projects using Si
 
 ## Usage
 
-This project can either be used directly or as a submodule in a larger project.
+This project can either be used directly or as a submodule in a larger project.  
 Note that submodule use will allow updates to this project for fixes or further device support.  
 For an example project using this method, see [TODO].
 
