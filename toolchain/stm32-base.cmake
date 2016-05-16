@@ -57,9 +57,9 @@ configure_file(${CMAKE_CURRENT_LIST_DIR}/../stm32f4.ld.in
 # Set compiler flags
 # Common arguments
 add_definitions("-Wextra -Wall -Wno-unused-parameter")
-add_definitions("-mcpu=cortex-${CPU_TYPE} -mthumb")
 add_definitions("-fno-builtin -ffunction-sections -fdata-sections -fomit-frame-pointer")
 add_definitions("-D${DEVICE} -D${CPU_TYPE_U}xx -D${CPU_FAMILY_U} ${OPTIONAL_DEBUG_SYMBOLS}")
+set(COMMON_DEFINITIONS "-mcpu=cortex-${CPU_TYPE} -mthumb")
 set(DEPFLAGS "-MMD -MP")
 
 # Enable FLTO optimization if required
