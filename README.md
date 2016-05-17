@@ -1,4 +1,4 @@
-# EFM32 Base Project
+# STM32F4 Base Project
 
 This base project is designed to provide a quick and platform independent method of building projects for STMicro STM32F4 processors.  
 Based on [ryankurte/efm32-base](https://github.com/ryankurte/efm32-base).
