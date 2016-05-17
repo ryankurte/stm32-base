@@ -9,12 +9,14 @@ Based on [ryankurte/efm32-base](https://github.com/ryankurte/efm32-base).
  - Getting started with Microcontrollers is hard (and time consuming)
  - Vendor IDEs are ultimately useless when approaching testing and build-automation
 
-This project addresses this by providing a common base for for projects using STM32F4 processors.
+This project addresses this by providing a common base for for projects using STM32F4 processors.  
+You may also wish to look at [stm32plus](https://github.com/andysworkshop/stm32plus), [platformio](platformio.org) or [Arm Yotta](yotta.mbed.com).
 
 ## Dependencies
  - cmake
  - make
- - arm-none-eabi-gcc - Embedded ARM Compiler/Toolchain (https://launchpad.net/gcc-arm-embedded/+download)
+ - [arm-none-eabi-gcc](https://launchpad.net/gcc-arm-embedded/+download) - Embedded ARM Compiler/Toolchain 
+ - [texane/stlink](https://github.com/texane/stlink) - STLink programmer application
 
 ## Usage
 
