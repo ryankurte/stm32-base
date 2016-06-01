@@ -48,6 +48,8 @@
 /* Include audio component Driver */
 #include "../Components/wm8994/wm8994.h"
 #include "stm32746g_discovery.h"
+#include "stm32f7xx_hal_sai.h"
+#include "stm32f7xx_hal_tim.h"
 
 /** @addtogroup BSP
   * @{

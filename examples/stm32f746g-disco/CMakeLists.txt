@@ -27,7 +27,7 @@ set(RAM_LENGTH 340k)
 
 # Set BSP (Evaluation kits only)
 set(BSP "STM32F746G-Discovery")
-set(BSP_COMPONENTS "Common;ili9341;stmpe811")
+set(BSP_COMPONENTS "Common")
 set(FATFS_DRIVER sd_diskio)
 add_definitions(-DUSE_STM32746G_DISCO=1)
 
