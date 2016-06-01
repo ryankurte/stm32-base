@@ -4,7 +4,7 @@
 
 **  File        : LinkerScript.ld
 **
-**  Abstract    : Linker script for STM32F4 Devices
+**  Abstract    : Linker script for STM32F Devices
 **                Modified for CMake use
 **
 **                Set heap size, stack size and stack location according
