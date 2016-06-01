@@ -1,6 +1,6 @@
-# STM32F4 Base Project
+# STM32F4/7 Base Project
 
-This base project is designed to provide a quick and platform independent method of building projects for STMicro STM32F4 processors.  
+This base project is designed to provide a quick and platform independent method of building projects for STMicro STM32F4 and STM32F7 family processors.  
 Based on [ryankurte/efm32-base](https://github.com/ryankurte/efm32-base).
 
 [![Build Status](https://travis-ci.org/ryankurte/stm32f4-base.svg)](https://travis-ci.org/ryankurte/stm32f4-base)
@@ -9,7 +9,7 @@ Based on [ryankurte/efm32-base](https://github.com/ryankurte/efm32-base).
  - Getting started with Microcontrollers is hard (and time consuming)
  - Vendor IDEs are ultimately useless when approaching testing and build-automation
 
-This project addresses this by providing a common base for for projects using STM32F4 processors.  
+This project addresses this by providing a common base for for projects using STM32F4/7 processors.  
 You may also wish to look at [stm32plus](https://github.com/andysworkshop/stm32plus), [platformio](platformio.org) or [Arm Yotta](yotta.mbed.com).
 
 ## Dependencies
@@ -43,11 +43,15 @@ For an example project using this method, see [TODO].
 5. Make something even more awesome!
 
 ## Building
-Once you have integrated this project with your project, you can build in the standard cmake manner.
+Once you have integrated this project with your project, you can build in the standard cmake manner.  
 
 1. `mkdir build`
 2. `cd build`
 3. `cmake ..`
 4. `make`
+5. `make flash` (to program the attached device)
 
-If you have any issues, suggestions or alterations, feel free to open an issue or a pull request.
+## Examples
+A couple of ST Examples ported to this framework are included in the examples directory. To use, change to the `examples/EXAMPLE` directory and run the build steps above.  
+
+If you have any issues, suggestions or alterations, feel free to open an issue or a pull request.  
