@@ -19,6 +19,7 @@ install:
 - sudo apt-get install gcc-arm-none-eabi
 - sudo apt-get install g++-multilib
 script:
-- mkdir build && cd build && cmake .. && make -j4 && cd ..
+- cd examples/stm32f429i-disco && mkdir build && cd build && cmake .. && make -j4 && cd ../../..
+- cd examples/stm32f747g-disco && mkdir build && cd build && cmake .. && make -j4 && cd ../../..
 notifications:
   email: false
