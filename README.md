@@ -43,6 +43,7 @@ For an example project using this method, see [TODO].
 5. Make something even more awesome!
 
 ## Building
+
 Once you have integrated this project with your project, you can build in the standard cmake manner.  
 
 1. `mkdir build`
@@ -52,6 +53,11 @@ Once you have integrated this project with your project, you can build in the st
 5. `make flash` (to program the attached device)
 
 ## Examples
+
 A couple of ST Examples ported to this framework are included in the examples directory. To use, change to the `examples/EXAMPLE` directory and run the build steps above.  
+
+## Notes
+
+* As of 2016-06-01 the latest version of stlink in the homebrew repositories does not support STM32F7 devices. To use the flash command you will need to compile the latest tools from the github link above.
 
 If you have any issues, suggestions or alterations, feel free to open an issue or a pull request.  
