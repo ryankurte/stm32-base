@@ -41,18 +41,26 @@ message("No CCRAM_LENGTH defined. Using default: ${CCRAM_LENGTH}")
 endif(NOT DEFINED CCRAM_LENGTH)
 
 # Set CPU type for compiler
+if(${CPU_FAMILY_U} STREQUAL "STM32F4")
 set(CPU_TYPE "m4")
+elseif(${CPU_FAMILY_U} STREQUAL "STM32F7")
+set(CPU_TYPE "m7")
+else()
+message(FATAL_ERROR "Unrecognised device family: ${CPU_FAMILY_U}")
+endif()
 
 # Include libraries
 include(${CMAKE_CURRENT_LIST_DIR}/../drivers/CMSIS/cmsis.cmake)
 include(${CMAKE_CURRENT_LIST_DIR}/../drivers/BSP/bsp.cmake)
-include(${CMAKE_CURRENT_LIST_DIR}/../drivers/STM32F4xx_HAL_Driver/hal.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/../drivers/HAL/hal.cmake)
 include(${CMAKE_CURRENT_LIST_DIR}/../middlewares/middlewares.cmake)
 
-# Generate linker script
-set(LINKER_SCRIPT stm32f4.ld)
-configure_file(${CMAKE_CURRENT_LIST_DIR}/../stm32f4.ld.in
+# Generate linker script (if not externally defined)
+if(NOT DEFINED LINKER_SCRIPT)
+set(LINKER_SCRIPT stm32.ld)
+configure_file(${CMAKE_CURRENT_LIST_DIR}/../stm32.ld.in
 	${PROJECT_BINARY_DIR}/${LINKER_SCRIPT})
+endif(NOT DEFINED LINKER_SCRIPT)
 
 # Set compiler flags
 # Common arguments
