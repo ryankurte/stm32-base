@@ -46,7 +46,7 @@ set(CPU_TYPE "m4")
 # Include libraries
 include(${CMAKE_CURRENT_LIST_DIR}/../drivers/CMSIS/cmsis.cmake)
 include(${CMAKE_CURRENT_LIST_DIR}/../drivers/BSP/bsp.cmake)
-include(${CMAKE_CURRENT_LIST_DIR}/../drivers/STM32F4xx_HAL_Driver/hal.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/../drivers/HAL/hal.cmake)
 include(${CMAKE_CURRENT_LIST_DIR}/../middlewares/middlewares.cmake)
 
 # Generate linker script
