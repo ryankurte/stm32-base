@@ -7,14 +7,15 @@ message(FATAL_ERROR "No processor defined")
 endif(NOT DEFINED DEVICE)
 message("Device: ${DEVICE}")
 string(TOUPPER ${DEVICE} DEVICE_U)
+string(TOLOWER ${DEVICE} DEVICE_L)
 
 # Determine device family
-string(REGEX MATCH "^(STM32F[0-9])" CPU_FAMILY_U "${DEVICE_U}")
+string(REGEX MATCH "^(STM32[FL][0-9])" CPU_FAMILY_U "${DEVICE_U}")
 string(TOLOWER ${CPU_FAMILY_U} CPU_FAMILY_L)
 message("Family: ${CPU_FAMILY_U}")
 
 # Determine short device type
-string(REGEX MATCH "^(STM32F[0-9][0-9][0-9])" CPU_TYPE_U "${DEVICE_U}")
+string(REGEX MATCH "^(STM32[FL][0-9][0-9][0-9])" CPU_TYPE_U "${DEVICE_U}")
 string(TOLOWER ${CPU_TYPE_U} CPU_TYPE_L)
 message("Type: ${CPU_TYPE_U}")
 

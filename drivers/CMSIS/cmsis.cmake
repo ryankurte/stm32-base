@@ -10,9 +10,32 @@ include_directories(
 	${DEVICE_BASE}/Include
 	)
 
+set(STARTUP_BASE ${DEVICE_BASE}/Source/Templates/gcc)
+
 # Find startup file
-file(GLOB STARTUP_FILE ${DEVICE_BASE}/Source/Templates/gcc/startup_${CPU_TYPE_L}*.s)
-message("Startup file: ${STARTUP_FILE}")
+if(EXISTS ${DEVICE_BASE}/Source/Templates/gcc/startup_${DEVICE_L}.s)
+    # Simple solution (direct match)
+    set(STARTUP_FILE ${DEVICE_BASE}/Source/Templates/gcc/startup_${DEVICE_L}.s)
+else()
+    # Complicated solution, match family and chip revision
+    file(GLOB STARTUP_FILES RELATIVE ${STARTUP_BASE} ${STARTUP_BASE}/startup_${CPU_TYPE_L}*.s)
+
+    foreach(FILE ${STARTUP_FILES})
+        string(REGEX REPLACE "x" "[a-zA-Z]" TEST_FILE ${FILE})
+        set(TEST_MATCH false)
+        string(REGEX MATCH "^(${TEST_FILE})" TEST_MATCH "startup_${DEVICE_L}.s")
+        if(TEST_MATCH) 
+            set(STARTUP_FILE ${STARTUP_BASE}/${FILE})
+        endif()
+    endforeach(FILE)
+
+endif()
+
+if(EXISTS "${STARTUP_FILE}")
+    message("Startup file: ${STARTUP_FILE}")
+else()
+    message(FATAL_ERROR "Startup file not found")
+endif()
 
 # Set system file name
 set(SYSTEM_FILE ${DEVICE_BASE}/Source/Templates/system_${CPU_FAMILY_L}xx.c)
