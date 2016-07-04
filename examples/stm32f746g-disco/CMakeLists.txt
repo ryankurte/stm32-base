@@ -26,6 +26,7 @@ set(DEVICE STM32F746NGH6U)
 set(RAM_LENGTH 340k)
 
 # Set BSP (Evaluation kits only)
+set(USE_HAL ON)
 set(BSP "STM32F746G-Discovery")
 set(BSP_COMPONENTS "Common")
 set(FATFS_DRIVER sd_diskio)

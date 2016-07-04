@@ -1,15 +1,15 @@
 language: c
 
 before_install:
-    - sudo add-apt-repository -y ppa:team-gcc-arm-embedded/ppa
-    - sudo apt-get update
+  - sudo add-apt-repository -y ppa:team-gcc-arm-embedded/ppa
+  - sudo apt-get update
 
 install:
-    - sudo apt-get install -y build-essential gcc-multilib gcc-arm-embedded g++-multilib
+  - sudo apt-get install -y build-essential gcc-multilib gcc-arm-embedded g++-multilib
 
 script:
-- cd examples/stm32f429i-disco && mkdir build && cd build && cmake .. && make -j4 && cd ../../..
-- cd examples/stm32f746g-disco && mkdir build && cd build && cmake .. && make -j4 && cd ../../..
+  - cd examples/stm32f429i-disco && mkdir build && cd build && cmake .. && make -j4 && cd ../../..
+  - cd examples/stm32f746g-disco && mkdir build && cd build && cmake .. && make -j4 && cd ../../..
 
 notifications:
   email: false

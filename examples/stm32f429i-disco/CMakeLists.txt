@@ -27,6 +27,7 @@ set(DEVICE STM32F429zit6)
 endif()
 
 # Set BSP (Evaluation kits only)
+set(USE_HAL ON)
 set(BSP "STM32F429I-Discovery")
 set(BSP_COMPONENTS "Common;ili9341;stmpe811")
 set(FATFS_DRIVER usbh_diskio)

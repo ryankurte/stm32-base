@@ -1,5 +1,7 @@
-# CMSIS cmake inclusion file
-# Adds CMSIS headers to the build
+# HAL cmake inclusion file
+# Adds HAL library to the build
+
+if(USE_HAL)
 
 set(HAL_LOCATION ${CMAKE_CURRENT_LIST_DIR}/${CPU_FAMILY_U}xx_HAL_Driver)
 
@@ -20,3 +22,5 @@ add_library(hal ${HAL_SOURCES})
 
 # Add library to the build
 set(LIBS ${LIBS} hal)
+
+endif()
