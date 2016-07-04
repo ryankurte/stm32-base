@@ -11,6 +11,7 @@ include_directories(
 	)
 
 set(STARTUP_BASE ${DEVICE_BASE}/Source/Templates/gcc)
+set(CURRENT_LEN 0)
 
 # Find startup file
 if(EXISTS ${DEVICE_BASE}/Source/Templates/gcc/startup_${DEVICE_L}.s)
@@ -27,7 +28,11 @@ else()
         #message("TEST: ${TEST_FILE} FILE: ${FILE} AGAINST: startup_${DEVICE_L}.s")
         string(REGEX MATCH "^(${TEST_FILE})" TEST_MATCH "startup_${DEVICE_L}.s")
         if(TEST_MATCH) 
-            set(STARTUP_FILE ${STARTUP_BASE}/${FILE})
+            string(LENGTH ${FILE} FILE_LEN)
+            if(${FILE_LEN} GREATER ${CURRENT_LEN}})
+                set(STARTUP_FILE ${STARTUP_BASE}/${FILE})
+                string(LENGTH ${FILE} CURRENT_LEN)
+            endif()
         endif()
     endforeach(FILE)
 
