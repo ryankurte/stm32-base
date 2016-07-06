@@ -69,10 +69,8 @@ endif(NOT DEFINED LINKER_SCRIPT)
 
 # Set compiler flags
 # Common arguments
-add_definitions("-Wextra -Wall -Wno-unused-parameter")
-add_definitions("-fno-builtin -ffunction-sections -fdata-sections -fomit-frame-pointer")
 add_definitions("-D${DEVICE} -D${CPU_TYPE_U}xx -D${CPU_FAMILY_U} ${OPTIONAL_DEBUG_SYMBOLS}")
-set(COMMON_DEFINITIONS "-mcpu=cortex-${CPU_TYPE} -mthumb")
+set(COMMON_DEFINITIONS "-Wextra -Wall -Wno-unused-parameter -mcpu=cortex-${CPU_TYPE} -mthumb -fno-builtin -ffunction-sections -fdata-sections -fomit-frame-pointer ${OPTIONAL_DEBUG_SYMBOLS}")
 set(DEPFLAGS "-MMD -MP")
 
 # Enable FLTO optimization if required
