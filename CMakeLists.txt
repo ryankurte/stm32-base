@@ -23,14 +23,12 @@ project(${TARGET} C CXX ASM)
 
 # Set device
 if(NOT DEVICE)
-set(DEVICE STM32F429zit6)
+set(DEVICE STM32F746NGH6U)
+set(FLASH_START 0x08000000)
+set(FLASH_LENGTH 1024k)
+set(RAM_LENGTH 340k)
+set(CCRAM_LENGTH 64k)
 endif()
-
-# Set BSP (Evaluation kits only)
-set(BSP "STM32F429I-Discovery")
-set(BSP_COMPONENTS "Common;ili9341;stmpe811")
-set(FATFS_DRIVER usbh_diskio)
-set(USB_HOST_CLASS MSC)
 
 set(USE_STLINK ON)
 
@@ -49,8 +47,13 @@ include(${PROJECT_SOURCE_DIR}/toolchain/stm32-base.cmake)
 
 ##### Files #####
 
-# Add project files
-include(${PROJECT_SOURCE_DIR}/example/example.cmake)
+# Include directories
+include_directories(${PROJECT_SOURCE_DIR}/source)
+
+# Source files
+set(PROJECT_SOURCES
+    source/main.cpp
+)
 
 ##### Outputs #####
 
@@ -69,5 +72,5 @@ include(${PROJECT_SOURCE_DIR}/toolchain/stlink.cmake)
 endif()
 
 if(USE_JLINK)
-include(${PROJECT_SOURCE_DIR}/toolchain/stlink.cmake)
+include(${PROJECT_SOURCE_DIR}/toolchain/jlink.cmake)
 endif()
