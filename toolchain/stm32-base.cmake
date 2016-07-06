@@ -83,11 +83,11 @@ endif()
 # Build flags
 set(CMAKE_C_FLAGS "-std=gnu99 ${COMMON_DEFINITIONS} ${CPU_FIX} --specs=nano.specs ${DEPFLAGS}")
 set(CMAKE_CXX_FLAGS "${COMMON_DEFINITIONS} ${CPU_FIX} --specs=nano.specs ${DEPFLAGS}")
-set(CMAKE_ASM_FLAGS "${COMMON_DEFINITIONS} -x assembler-with-cpp -DLOOP_ADDR=0x8000")
+set(CMAKE_ASM_FLAGS "${COMMON_DEFINITIONS} --specs=nano.specs -x assembler-with-cpp")
 set(CMAKE_EXE_LINKER_FLAGS "${COMMON_DEFINITIONS} -Xlinker -T${LINKER_SCRIPT} -Wl,-Map=${CMAKE_PROJECT_NAME}.map -Wl,--gc-sections")
 
 # Set default inclusions
-set(LIBS ${LIBS} -lgcc -lc -lnosys)
+set(LIBS ${LIBS} -lgcc -lc -lnosys -lgcc -lc -lnosys)
 
 # Debug Flags
 set(COMMON_DEBUG_FLAGS "-O0 -g -gdwarf-2")
