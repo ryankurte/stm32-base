@@ -37,7 +37,7 @@ message("No RAM_LENGTH defined. Using default: ${RAM_LENGTH}")
 endif(NOT DEFINED RAM_LENGTH)
 
 if(NOT DEFINED CCRAM_LENGTH)
-set(CCRAM_LENGTH 64k)
+set(CCRAM_LENGTH 0k)
 message("No CCRAM_LENGTH defined. Using default: ${CCRAM_LENGTH}")
 endif(NOT DEFINED CCRAM_LENGTH)
 

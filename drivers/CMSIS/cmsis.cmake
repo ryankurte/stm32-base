@@ -39,7 +39,7 @@ else()
 endif()
 
 if(EXISTS "${STARTUP_FILE}")
-    message("Startup file: ${STARTUP_FILE}")
+    #message("Startup file: ${STARTUP_FILE}")
 else()
     message(FATAL_ERROR "Startup file not found")
 endif()
@@ -47,7 +47,7 @@ endif()
 # Set system file name
 set(SYSTEM_FILE ${DEVICE_BASE}/Source/Templates/system_${CPU_FAMILY_L}xx.c)
 
-message("System file: ${SYSTEM_FILE}")
+#message("System file: ${SYSTEM_FILE}")
 
 # Create device library
 add_library(device ${STARTUP_FILE} ${SYSTEM_FILE})
