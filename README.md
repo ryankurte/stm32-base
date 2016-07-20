@@ -3,7 +3,10 @@
 This base project is designed to provide a quick and platform independent method of building projects for STMicro STM32F4 and STM32F7 family processors.  
 Based on [ryankurte/efm32-base](https://github.com/ryankurte/efm32-base).
 
+## Status
 [![Build Status](https://travis-ci.org/ryankurte/stm32f4-base.svg)](https://travis-ci.org/ryankurte/stm32f4-base)
+
+STM32F4 & STM32F7 working. STM32L0 & STM32L1 processors experimental / broken.
 
 ## Motivation
  - Getting started with Microcontrollers is hard (and time consuming)
