@@ -14,6 +14,11 @@ string(REGEX MATCH "^(STM32[FL][0-9])" CPU_FAMILY_U "${DEVICE_U}")
 string(TOLOWER ${CPU_FAMILY_U} CPU_FAMILY_L)
 message("Family: ${CPU_FAMILY_U}")
 
+# Generic families
+string(REGEX MATCH "^(STM32[FL][0-9][0-9][0-9])([A-Z])([A-Z])" CPU_FAMILY_MATCH "${DEVICE_U}")
+set(CPU_FAMILY_A "${CMAKE_MATCH_1}x${CMAKE_MATCH_3}")
+message("Family Match: ${CPU_FAMILY_A}")
+
 # Determine short device type
 string(REGEX MATCH "^(STM32[FL][0-9][0-9][0-9])" CPU_TYPE_U "${DEVICE_U}")
 string(TOLOWER ${CPU_TYPE_U} CPU_TYPE_L)
@@ -69,7 +74,7 @@ endif(NOT DEFINED LINKER_SCRIPT)
 
 # Set compiler flags
 # Common arguments
-add_definitions("-D${DEVICE} -D${CPU_TYPE_U}xx -D${CPU_FAMILY_U} ${OPTIONAL_DEBUG_SYMBOLS}")
+add_definitions("-D${DEVICE} -D${CPU_TYPE_U}xx -D${CPU_FAMILY_U} -D${CPU_FAMILY_A} ${OPTIONAL_DEBUG_SYMBOLS}")
 set(COMMON_DEFINITIONS "-Wextra -Wall -Wno-unused-parameter -mcpu=cortex-${CPU_TYPE} -mthumb -fno-builtin -ffunction-sections -fdata-sections -fomit-frame-pointer ${OPTIONAL_DEBUG_SYMBOLS}")
 set(DEPFLAGS "-MMD -MP")
 
