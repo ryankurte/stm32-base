@@ -13,8 +13,12 @@ include_directories(
 set(STARTUP_BASE ${DEVICE_BASE}/Source/Templates/gcc)
 set(CURRENT_LEN 0)
 
+message("Startup dir: ${DEVICE_BASE}/Source/Templates/gcc/")
+
 # Find startup file
-if(EXISTS ${DEVICE_BASE}/Source/Templates/gcc/startup_${DEVICE_L}.s)
+if(EXISTS "${STARTUP_FILE}")
+    message("Startup file override: ${STARTUP_FILE}")
+elseif(EXISTS ${DEVICE_BASE}/Source/Templates/gcc/startup_${DEVICE_L}.s)
     # Simple solution (direct match)
     set(STARTUP_FILE ${DEVICE_BASE}/Source/Templates/gcc/startup_${DEVICE_L}.s)
 else()
@@ -25,7 +29,7 @@ else()
         string(REGEX REPLACE "\\.[^.]*$" "" TEST_FILE ${FILE})
         string(REGEX REPLACE "x" "[a-zA-Z]" TEST_FILE ${TEST_FILE})
         set(TEST_MATCH false)
-        #message("TEST: ${TEST_FILE} FILE: ${FILE} AGAINST: startup_${DEVICE_L}.s")
+        message("TEST: ${TEST_FILE} FILE: ${FILE} AGAINST: startup_${DEVICE_L}.s")
         string(REGEX MATCH "^(${TEST_FILE})" TEST_MATCH "startup_${DEVICE_L}.s")
         if(TEST_MATCH) 
             string(LENGTH ${FILE} FILE_LEN)
@@ -39,9 +43,9 @@ else()
 endif()
 
 if(EXISTS "${STARTUP_FILE}")
-    #message("Startup file: ${STARTUP_FILE}")
+    message("Startup file: ${STARTUP_FILE}")
 else()
-    message(FATAL_ERROR "Startup file not found")
+    message(FATAL_ERROR "Startup file ${STARTUP_FILE} not found")
 endif()
 
 # Set system file name

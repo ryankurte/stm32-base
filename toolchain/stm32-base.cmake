@@ -47,7 +47,9 @@ message("No CCRAM_LENGTH defined. Using default: ${CCRAM_LENGTH}")
 endif(NOT DEFINED CCRAM_LENGTH)
 
 # Set CPU type for compiler
-if(${CPU_FAMILY_U} STREQUAL "STM32F4")
+if(${CPU_FAMILY_U} STREQUAL "STM32F1")
+set(CPU_TYPE "m3")
+elseif(${CPU_FAMILY_U} STREQUAL "STM32F4")
 set(CPU_TYPE "m4")
 elseif(${CPU_FAMILY_U} STREQUAL "STM32F7")
 set(CPU_TYPE "m7")
