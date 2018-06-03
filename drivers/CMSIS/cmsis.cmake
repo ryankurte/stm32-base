@@ -16,8 +16,9 @@ set(CURRENT_LEN 0)
 message("Startup dir: ${DEVICE_BASE}/Source/Templates/gcc/")
 
 # Find startup file
-if(EXISTS "${STARTUP_FILE}")
-    message("Startup file override: ${STARTUP_FILE}")
+if(DEFINED STARTUP_OVERRIDE)
+    set(STARTUP_FILE ${DEVICE_BASE}/Source/Templates/gcc/${STARTUP_OVERRIDE})
+    message("Startup file override: ${STARTUP_OVERRIDE}")
 elseif(EXISTS ${DEVICE_BASE}/Source/Templates/gcc/startup_${DEVICE_L}.s)
     # Simple solution (direct match)
     set(STARTUP_FILE ${DEVICE_BASE}/Source/Templates/gcc/startup_${DEVICE_L}.s)

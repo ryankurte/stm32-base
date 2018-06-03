@@ -5,6 +5,8 @@ if(USE_HAL)
 
 set(HAL_LOCATION ${CMAKE_CURRENT_LIST_DIR}/${CPU_FAMILY_U}xx_HAL_Driver)
 
+message("HAL Location: ${HAL_LOCATION}")
+
 # Add the hal headers
 include_directories(${HAL_LOCATION}/Inc)
 
