@@ -4,7 +4,7 @@ This base project is designed to provide a quick and platform independent method
 Based on [ryankurte/efm32-base](https://github.com/ryankurte/efm32-base).
 
 ## Status
-[![Build Status](https://travis-ci.org/ryankurte/stm32f4-base.svg)](https://travis-ci.org/ryankurte/stm32f4-base)
+[![Build Status](https://travis-ci.org/ryankurte/stm32-base.svg)](https://travis-ci.org/ryankurte/stm32-base)
 
 STM32F4 & STM32F7 working. STM32L0 & STM32L1 processors experimental / broken.
 
