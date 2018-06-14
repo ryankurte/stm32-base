@@ -9,10 +9,11 @@ set(CMAKE_SYSTEM_NAME Generic)
 # Set processor type
 set(CMAKE_SYSTEM_PROCESSOR arm)
 
-# Set compiler paths. We force set so it doesn't run tests
-CMAKE_FORCE_C_COMPILER(${COMPILER_PREFIX}arm-none-eabi-gcc GNU)
-CMAKE_FORCE_CXX_COMPILER(${COMPILER_PREFIX}arm-none-eabi-g++ GNU)
-set(CMAKE_ASM_COMPILER ${COMPILER_PREFIX}arm-none-eabi-g++)
+# Override compiler
+set(CMAKE_SYSTEM_NAME Generic)
+SET(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
+set(CMAKE_C_COMPILER arm-none-eabi-gcc)
+set(CMAKE_CXX_COMPILER arm-none-eabi-g++)
 
 # Set other tools
 set(OBJSIZE ${COMPILER_PREFIX}arm-none-eabi-size)
