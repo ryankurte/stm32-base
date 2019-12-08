@@ -2,8 +2,6 @@
   ******************************************************************************
   * @file    stm32f4xx_nucleo_144.c
   * @author  MCD Application Team
-  * @version V1.0.1
-  * @date    13-January-2016
   * @brief   This file provides set of firmware functions to manage:
   *          - LEDs and push-button available on STM32F4XX-Nucleo-144 Kit 
   *            from STMicroelectronics
@@ -70,11 +68,11 @@
   */ 
 
 /**
-  * @brief STM32F4xx NUCLEO BSP Driver version number V1.0.1
+  * @brief STM32F4xx NUCLEO BSP Driver version number V1.0.3
   */
 #define __STM32F4xx_NUCLEO_BSP_VERSION_MAIN   (0x01) /*!< [31:24] main version */
 #define __STM32F4xx_NUCLEO_BSP_VERSION_SUB1   (0x00) /*!< [23:16] sub1 version */
-#define __STM32F4xx_NUCLEO_BSP_VERSION_SUB2   (0x01) /*!< [15:8]  sub2 version */
+#define __STM32F4xx_NUCLEO_BSP_VERSION_SUB2   (0x03) /*!< [15:8]  sub2 version */
 #define __STM32F4xx_NUCLEO_BSP_VERSION_RC     (0x00) /*!< [7:0]  release candidate */ 
 #define __STM32F4xx_NUCLEO_BSP_VERSION        ((__STM32F4xx_NUCLEO_BSP_VERSION_MAIN << 24)\
                                              |(__STM32F4xx_NUCLEO_BSP_VERSION_SUB1 << 16)\
@@ -84,7 +82,7 @@
 /**
   * @brief LINK SD Card
   */
-#define SD_DUMMY_BYTE            0xFF    
+#define SD_DUMMY_BYTE            0xFF
 #define SD_NO_RESPONSE_EXPECTED  0x80
 
 /**
@@ -382,14 +380,15 @@ static void SPIx_Init(void)
   {
     /* SPI Config */
     hnucleo_Spi.Instance = NUCLEO_SPIx;
-      /* SPI baudrate is set to 12,5 MHz maximum (APB2/SPI_BaudRatePrescaler = 90/8 = 11,25 MHz) 
-       to verify these constraints:
+    /* SPI configuration contraints
           - ST7735 LCD SPI interface max baudrate is 15MHz for write and 6.66MHz for read
             Since the provided driver doesn't use read capability from LCD, only constraint 
             on write baudrate is considered.
           - SD card SPI interface max baudrate is 25MHz for write/read
-          - PCLK2 max frequency is 90 MHz 
-       */ 
+       to feat these constraints SPI baudrate is set to:
+	      - For STM32F412ZG devices: 12,5 MHz maximum (PCLK2/SPI_BAUDRATEPRESCALER_8 = 100 MHz/8 = 12,5 MHz)
+		  - For STM32F446ZE/STM32F429ZI devices: 11,25 MHz maximum (PCLK2/SPI_BAUDRATEPRESCALER_8 = 90 MHz/8 = 11,25 MHz)
+    */ 
     hnucleo_Spi.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_8;
     hnucleo_Spi.Init.Direction = SPI_DIRECTION_2LINES;
     hnucleo_Spi.Init.CLKPhase = SPI_PHASE_2EDGE;
@@ -820,7 +819,7 @@ JOYState_TypeDef BSP_JOY_GetState(void)
   HAL_ADC_PollForConversion(&hnucleo_Adc, 10);
   
   /* Check if the continuous conversion of regular channel is finished */
-  if(HAL_ADC_GetState(&hnucleo_Adc) == HAL_ADC_STATE_EOC_REG)
+  if((HAL_ADC_GetState(&hnucleo_Adc) & HAL_ADC_STATE_EOC_REG) == HAL_ADC_STATE_EOC_REG)
   {
     /* Get the converted value of regular channel */
     keyconvertedvalue = HAL_ADC_GetValue(&hnucleo_Adc);

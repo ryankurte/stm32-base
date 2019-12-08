@@ -2,14 +2,12 @@
   ******************************************************************************
   * @file    stm32f4_discovery.h
   * @author  MCD Application Team
-  * @version V2.1.1
-  * @date    12-January-2016
   * @brief   This file contains definitions for STM32F4-Discovery Kit's Leds and 
   *          push-button hardware resources.
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; COPYRIGHT(c) 2016 STMicroelectronics</center></h2>
+  * <h2><center>&copy; COPYRIGHT(c) 2017 STMicroelectronics</center></h2>
   *
   * Redistribution and use in source and binary forms, with or without modification,
   * are permitted provided that the following conditions are met:
@@ -102,23 +100,23 @@ typedef enum
 
 #define LED4_PIN                         GPIO_PIN_12
 #define LED4_GPIO_PORT                   GPIOD
-#define LED4_GPIO_CLK_ENABLE()           __GPIOD_CLK_ENABLE()  
-#define LED4_GPIO_CLK_DISABLE()          __GPIOD_CLK_DISABLE()  
+#define LED4_GPIO_CLK_ENABLE()           __HAL_RCC_GPIOD_CLK_ENABLE()  
+#define LED4_GPIO_CLK_DISABLE()          __HAL_RCC_GPIOD_CLK_DISABLE()  
 
 #define LED3_PIN                         GPIO_PIN_13
 #define LED3_GPIO_PORT                   GPIOD
-#define LED3_GPIO_CLK_ENABLE()           __GPIOD_CLK_ENABLE()  
-#define LED3_GPIO_CLK_DISABLE()          __GPIOD_CLK_DISABLE()  
+#define LED3_GPIO_CLK_ENABLE()           __HAL_RCC_GPIOD_CLK_ENABLE()  
+#define LED3_GPIO_CLK_DISABLE()          __HAL_RCC_GPIOD_CLK_DISABLE()  
   
 #define LED5_PIN                         GPIO_PIN_14
 #define LED5_GPIO_PORT                   GPIOD
-#define LED5_GPIO_CLK_ENABLE()           __GPIOD_CLK_ENABLE()  
-#define LED5_GPIO_CLK_DISABLE()          __GPIOD_CLK_DISABLE()  
+#define LED5_GPIO_CLK_ENABLE()           __HAL_RCC_GPIOD_CLK_ENABLE()  
+#define LED5_GPIO_CLK_DISABLE()          __HAL_RCC_GPIOD_CLK_DISABLE()  
 
 #define LED6_PIN                         GPIO_PIN_15
 #define LED6_GPIO_PORT                   GPIOD
-#define LED6_GPIO_CLK_ENABLE()           __GPIOD_CLK_ENABLE()  
-#define LED6_GPIO_CLK_DISABLE()          __GPIOD_CLK_DISABLE()  
+#define LED6_GPIO_CLK_ENABLE()           __HAL_RCC_GPIOD_CLK_ENABLE()  
+#define LED6_GPIO_CLK_DISABLE()          __HAL_RCC_GPIOD_CLK_DISABLE()  
 
 #define LEDx_GPIO_CLK_ENABLE(__INDEX__) do{if((__INDEX__) == 0) LED4_GPIO_CLK_ENABLE(); else \
                                            if((__INDEX__) == 1) LED3_GPIO_CLK_ENABLE(); else \
@@ -145,8 +143,8 @@ typedef enum
  */
 #define KEY_BUTTON_PIN                GPIO_PIN_0
 #define KEY_BUTTON_GPIO_PORT          GPIOA
-#define KEY_BUTTON_GPIO_CLK_ENABLE()  __GPIOA_CLK_ENABLE()
-#define KEY_BUTTON_GPIO_CLK_DISABLE() __GPIOA_CLK_DISABLE()
+#define KEY_BUTTON_GPIO_CLK_ENABLE()  __HAL_RCC_GPIOA_CLK_ENABLE()
+#define KEY_BUTTON_GPIO_CLK_DISABLE() __HAL_RCC_GPIOA_CLK_DISABLE()
 #define KEY_BUTTON_EXTI_IRQn          EXTI0_IRQn 
 
 #define BUTTONx_GPIO_CLK_ENABLE(__INDEX__)    do{if((__INDEX__) == 0) KEY_BUTTON_GPIO_CLK_ENABLE(); \
@@ -164,11 +162,11 @@ typedef enum
 
 /*############################### SPI1 #######################################*/
 #define DISCOVERY_SPIx                              SPI1
-#define DISCOVERY_SPIx_CLK_ENABLE()                 __SPI1_CLK_ENABLE()
+#define DISCOVERY_SPIx_CLK_ENABLE()                 __HAL_RCC_SPI1_CLK_ENABLE()
 #define DISCOVERY_SPIx_GPIO_PORT                    GPIOA                      /* GPIOA */
 #define DISCOVERY_SPIx_AF                           GPIO_AF5_SPI1
-#define DISCOVERY_SPIx_GPIO_CLK_ENABLE()            __GPIOA_CLK_ENABLE()
-#define DISCOVERY_SPIx_GPIO_CLK_DISABLE()           __GPIOA_CLK_DISABLE()
+#define DISCOVERY_SPIx_GPIO_CLK_ENABLE()            __HAL_RCC_GPIOA_CLK_ENABLE()
+#define DISCOVERY_SPIx_GPIO_CLK_DISABLE()           __HAL_RCC_GPIOA_CLK_DISABLE()
 #define DISCOVERY_SPIx_SCK_PIN                      GPIO_PIN_5                 /* PA.05 */
 #define DISCOVERY_SPIx_MISO_PIN                     GPIO_PIN_6                 /* PA.06 */
 #define DISCOVERY_SPIx_MOSI_PIN                     GPIO_PIN_7                 /* PA.07 */
@@ -189,15 +187,15 @@ typedef enum
 
 /* I2C peripheral configuration defines (control interface of the audio codec) */
 #define DISCOVERY_I2Cx                            I2C1
-#define DISCOVERY_I2Cx_CLK_ENABLE()               __I2C1_CLK_ENABLE()
-#define DISCOVERY_I2Cx_SCL_SDA_GPIO_CLK_ENABLE()  __GPIOB_CLK_ENABLE()
+#define DISCOVERY_I2Cx_CLK_ENABLE()               __HAL_RCC_I2C1_CLK_ENABLE()
+#define DISCOVERY_I2Cx_SCL_SDA_GPIO_CLK_ENABLE()  __HAL_RCC_GPIOB_CLK_ENABLE()
 #define DISCOVERY_I2Cx_SCL_SDA_AF                 GPIO_AF4_I2C1
 #define DISCOVERY_I2Cx_SCL_SDA_GPIO_PORT          GPIOB
 #define DISCOVERY_I2Cx_SCL_PIN                    GPIO_PIN_6
 #define DISCOVERY_I2Cx_SDA_PIN                    GPIO_PIN_9
 
-#define DISCOVERY_I2Cx_FORCE_RESET()              __I2C1_FORCE_RESET()
-#define DISCOVERY_I2Cx_RELEASE_RESET()            __I2C1_RELEASE_RESET()
+#define DISCOVERY_I2Cx_FORCE_RESET()              __HAL_RCC_I2C1_FORCE_RESET()
+#define DISCOVERY_I2Cx_RELEASE_RESET()            __HAL_RCC_I2C1_RELEASE_RESET()
 
 /* I2C interrupt requests */                  
 #define DISCOVERY_I2Cx_EV_IRQn                    I2C1_EV_IRQn
@@ -228,11 +226,11 @@ typedef enum
   */
 #define ACCELERO_CS_PIN                        GPIO_PIN_3                 /* PE.03 */
 #define ACCELERO_CS_GPIO_PORT                  GPIOE                      /* GPIOE */
-#define ACCELERO_CS_GPIO_CLK_ENABLE()          __GPIOE_CLK_ENABLE()
-#define ACCELERO_CS_GPIO_CLK_DISABLE()         __GPIOE_CLK_DISABLE()
+#define ACCELERO_CS_GPIO_CLK_ENABLE()          __HAL_RCC_GPIOE_CLK_ENABLE()
+#define ACCELERO_CS_GPIO_CLK_DISABLE()         __HAL_RCC_GPIOE_CLK_DISABLE()
 #define ACCELERO_INT_GPIO_PORT                 GPIOE                      /* GPIOE */
-#define ACCELERO_INT_GPIO_CLK_ENABLE()         __GPIOE_CLK_ENABLE()
-#define ACCELERO_INT_GPIO_CLK_DISABLE()        __GPIOE_CLK_DISABLE()
+#define ACCELERO_INT_GPIO_CLK_ENABLE()         __HAL_RCC_GPIOE_CLK_ENABLE()
+#define ACCELERO_INT_GPIO_CLK_DISABLE()        __HAL_RCC_GPIOE_CLK_DISABLE()
 #define ACCELERO_INT1_PIN                      GPIO_PIN_0                 /* PE.00 */
 #define ACCELERO_INT1_EXTI_IRQn                EXTI0_IRQn 
 #define ACCELERO_INT2_PIN                      GPIO_PIN_1                 /* PE.01 */
@@ -249,7 +247,7 @@ typedef enum
 #define AUDIO_I2C_ADDRESS                     0x94
   
   /* Audio Reset Pin definition */
-#define AUDIO_RESET_GPIO_CLK_ENABLE()         __GPIOD_CLK_ENABLE()
+#define AUDIO_RESET_GPIO_CLK_ENABLE()         __HAL_RCC_GPIOD_CLK_ENABLE()
 #define AUDIO_RESET_PIN                       GPIO_PIN_4
 #define AUDIO_RESET_GPIO                      GPIOD
 /**

@@ -2,15 +2,15 @@
   ******************************************************************************
   * @file    otm8009a.h
   * @author  MCD Application Team
-  * @version V1.0.0
-  * @date    03-August-2015
+  * @version V1.0.2
+  * @date    27-January-2017
   * @brief   This file contains all the constants parameters for the OTM8009A
   *          which is the LCD Driver for KoD KM-040TMP-02-0621 (WVGA)
   *          DSI LCD Display.
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; COPYRIGHT(c) 2015 STMicroelectronics</center></h2>
+  * <h2><center>&copy; COPYRIGHT(c) 2017 STMicroelectronics</center></h2>
   *
   * Redistribution and use in source and binary forms, with or without modification,
   * are permitted provided that the following conditions are met:
@@ -98,23 +98,23 @@
 /**
   * @brief  OTM8009A_480X800 Timing parameters for Portrait orientation mode
   */
-#define  OTM8009A_480X800_HSYNC             ((uint16_t)120)     /* Horizontal synchronization */
-#define  OTM8009A_480X800_HBP               ((uint16_t)120)     /* Horizontal back porch      */
-#define  OTM8009A_480X800_HFP               ((uint16_t)120)     /* Horizontal front porch     */
-#define  OTM8009A_480X800_VSYNC             ((uint16_t)12)      /* Vertical synchronization   */
-#define  OTM8009A_480X800_VBP               ((uint16_t)12)      /* Vertical back porch        */
-#define  OTM8009A_480X800_VFP               ((uint16_t)12)      /* Vertical front porch       */
+#define  OTM8009A_480X800_HSYNC             ((uint16_t)2)      /* Horizontal synchronization */
+#define  OTM8009A_480X800_HBP               ((uint16_t)34)     /* Horizontal back porch      */
+#define  OTM8009A_480X800_HFP               ((uint16_t)34)     /* Horizontal front porch     */
+#define  OTM8009A_480X800_VSYNC             ((uint16_t)1)      /* Vertical synchronization   */
+#define  OTM8009A_480X800_VBP               ((uint16_t)15)      /* Vertical back porch        */
+#define  OTM8009A_480X800_VFP               ((uint16_t)16)      /* Vertical front porch       */
 
 /**
   * @brief  OTM8009A_800X480 Timing parameters for Landscape orientation mode
   *         Same values as for Portrait mode in fact.
   */
-#define  OTM8009A_800X480_HSYNC             OTM8009A_480X800_HSYNC  /* Horizontal synchronization */
-#define  OTM8009A_800X480_HBP               OTM8009A_480X800_HBP    /* Horizontal back porch      */
-#define  OTM8009A_800X480_HFP               OTM8009A_480X800_HFP    /* Horizontal front porch     */
-#define  OTM8009A_800X480_VSYNC             OTM8009A_480X800_VSYNC  /* Vertical synchronization   */
-#define  OTM8009A_800X480_VBP               OTM8009A_480X800_VBP    /* Vertical back porch        */
-#define  OTM8009A_800X480_VFP               OTM8009A_480X800_VFP    /* Vertical front porch       */
+#define  OTM8009A_800X480_HSYNC             OTM8009A_480X800_VSYNC  /* Horizontal synchronization */
+#define  OTM8009A_800X480_HBP               OTM8009A_480X800_VBP    /* Horizontal back porch      */
+#define  OTM8009A_800X480_HFP               OTM8009A_480X800_VFP    /* Horizontal front porch     */
+#define  OTM8009A_800X480_VSYNC             OTM8009A_480X800_HSYNC  /* Vertical synchronization   */
+#define  OTM8009A_800X480_VBP               OTM8009A_480X800_HBP    /* Vertical back porch        */
+#define  OTM8009A_800X480_VFP               OTM8009A_480X800_HFP    /* Vertical front porch       */
 
 
 /* List of OTM8009A used commands                                  */

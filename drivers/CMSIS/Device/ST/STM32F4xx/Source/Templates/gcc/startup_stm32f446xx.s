@@ -2,8 +2,6 @@
   ******************************************************************************
   * @file      startup_stm32f446xx.s
   * @author    MCD Application Team
-  * @version   V2.4.3
-  * @date      22-January-2016
   * @brief     STM32F446xx Devices vector table for GCC based toolchains. 
   *            This module performs:
   *                - Set the initial SP
@@ -16,7 +14,7 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; COPYRIGHT 2016 STMicroelectronics</center></h2>
+  * <h2><center>&copy; COPYRIGHT 2017 STMicroelectronics</center></h2>
   *
   * Redistribution and use in source and binary forms, with or without modification,
   * are permitted provided that the following conditions are met:
@@ -255,8 +253,8 @@ g_pfnVectors:
   .word     QUADSPI_IRQHandler                /* QuadSPI                      */
   .word     CEC_IRQHandler                    /* CEC                          */
   .word     SPDIF_RX_IRQHandler               /* SPDIF RX                     */
-  .word     FMPI2C1_Event_IRQHandler          /* FMPI2C 1 Event               */
-  .word     FMPI2C1_Error_IRQHandler          /* FMPI2C 1 Error               */
+  .word     FMPI2C1_EV_IRQHandler          /* FMPI2C 1 Event               */
+  .word     FMPI2C1_ER_IRQHandler          /* FMPI2C 1 Error               */
   
 /*******************************************************************************
 *
@@ -544,11 +542,11 @@ g_pfnVectors:
    .weak      SPDIF_RX_IRQHandler            
    .thumb_set SPDIF_RX_IRQHandler,Default_Handler 
  
-   .weak      FMPI2C1_Event_IRQHandler            
-   .thumb_set FMPI2C1_Event_IRQHandler,Default_Handler
+   .weak      FMPI2C1_EV_IRQHandler            
+   .thumb_set FMPI2C1_EV_IRQHandler,Default_Handler
    
-   .weak      FMPI2C1_Error_IRQHandler            
-   .thumb_set FMPI2C1_Error_IRQHandler,Default_Handler 
+   .weak      FMPI2C1_ER_IRQHandler            
+   .thumb_set FMPI2C1_ER_IRQHandler,Default_Handler 
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/        
  

@@ -2,14 +2,12 @@
   ******************************************************************************
   * @file    stm32f411e_discovery.c
   * @author  MCD Application Team
-  * @version V1.0.1
-  * @date    12-January-2016
   * @brief   This file provides set of firmware functions to manage LEDs and
   *          push-button available on STM32F411-Discovery Kit from STMicroelectronics.
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; COPYRIGHT(c) 2016 STMicroelectronics</center></h2>
+  * <h2><center>&copy; COPYRIGHT(c) 2017 STMicroelectronics</center></h2>
   *
   * Redistribution and use in source and binary forms, with or without modification,
   * are permitted provided that the following conditions are met:
@@ -65,11 +63,11 @@
   */ 
   
 /**
-  * @brief STM32F411E DISCO BSP Driver version number V1.0.1
+  * @brief STM32F411E DISCO BSP Driver version number V1.0.3
   */
 #define __STM32F411E_DISCO_BSP_VERSION_MAIN   (0x01) /*!< [31:24] main version */
 #define __STM32F411E_DISCO_BSP_VERSION_SUB1   (0x00) /*!< [23:16] sub1 version */
-#define __STM32F411E_DISCO_BSP_VERSION_SUB2   (0x01) /*!< [15:8]  sub2 version */
+#define __STM32F411E_DISCO_BSP_VERSION_SUB2   (0x03) /*!< [15:8]  sub2 version */
 #define __STM32F411E_DISCO_BSP_VERSION_RC     (0x00) /*!< [7:0]  release candidate */ 
 #define __STM32F411E_DISCO_BSP_VERSION         ((__STM32F411E_DISCO_BSP_VERSION_MAIN << 24)\
                                              |(__STM32F411E_DISCO_BSP_VERSION_SUB1 << 16)\
@@ -394,12 +392,12 @@ static void I2Cx_MspInit(I2C_HandleTypeDef *hi2c)
   /* Release the I2C peripheral clock reset */
   DISCOVERY_I2Cx_RELEASE_RESET();
 
-  /* Enable and set I2Cx Interrupt to the highest priority */
-  HAL_NVIC_SetPriority(DISCOVERY_I2Cx_EV_IRQn, 0, 0);
+  /* Enable and set I2Cx Interrupt to the lowest priority */
+  HAL_NVIC_SetPriority(DISCOVERY_I2Cx_EV_IRQn, 0x0F, 0);
   HAL_NVIC_EnableIRQ(DISCOVERY_I2Cx_EV_IRQn);
 
-  /* Enable and set I2Cx Interrupt to the highest priority */
-  HAL_NVIC_SetPriority(DISCOVERY_I2Cx_ER_IRQn, 0, 0);
+  /* Enable and set I2Cx Interrupt to the lowest priority */
+  HAL_NVIC_SetPriority(DISCOVERY_I2Cx_ER_IRQn, 0x0F, 0);
   HAL_NVIC_EnableIRQ(DISCOVERY_I2Cx_ER_IRQn); 
 }
 
@@ -700,8 +698,8 @@ void COMPASSACCELERO_IO_ITConfig(void)
   GPIO_InitStructure.Pull  = GPIO_NOPULL;
   HAL_GPIO_Init(ACCELERO_INT_GPIO_PORT, &GPIO_InitStructure);
   
-  /* Enable and set COMPASS / ACCELERO Interrupt to the highest priority */
-  HAL_NVIC_SetPriority(ACCELERO_INT1_EXTI_IRQn, 0x00, 0x00);
+  /* Enable and set COMPASS / ACCELERO Interrupt to the lowest priority */
+  HAL_NVIC_SetPriority(ACCELERO_INT1_EXTI_IRQn, 0x0F, 0x00);
   HAL_NVIC_EnableIRQ(ACCELERO_INT1_EXTI_IRQn);
 }
 

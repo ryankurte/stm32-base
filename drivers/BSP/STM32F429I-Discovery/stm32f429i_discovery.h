@@ -2,14 +2,12 @@
   ******************************************************************************
   * @file    stm32f429i_discovery.h
   * @author  MCD Application Team
-  * @version V2.1.3
-  * @date    13-January-2016
   * @brief   This file contains definitions for STM32F429I-Discovery Kit LEDs,
   *          push-buttons hardware resources.
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; COPYRIGHT(c) 2016 STMicroelectronics</center></h2>
+  * <h2><center>&copy; COPYRIGHT(c) 2017 STMicroelectronics</center></h2>
   *
   * Redistribution and use in source and binary forms, with or without modification,
   * are permitted provided that the following conditions are met:
@@ -101,13 +99,13 @@ typedef enum
   
 #define LED3_PIN                                GPIO_PIN_13
 #define LED3_GPIO_PORT                          GPIOG
-#define LED3_GPIO_CLK_ENABLE()                  __GPIOG_CLK_ENABLE()  
-#define LED3_GPIO_CLK_DISABLE()                 __GPIOG_CLK_DISABLE()  
+#define LED3_GPIO_CLK_ENABLE()                  __HAL_RCC_GPIOG_CLK_ENABLE()  
+#define LED3_GPIO_CLK_DISABLE()                 __HAL_RCC_GPIOG_CLK_DISABLE()  
 
 #define LED4_PIN                                GPIO_PIN_14
 #define LED4_GPIO_PORT                          GPIOG
-#define LED4_GPIO_CLK_ENABLE()                  __GPIOG_CLK_ENABLE()  
-#define LED4_GPIO_CLK_DISABLE()                 __GPIOG_CLK_DISABLE()  
+#define LED4_GPIO_CLK_ENABLE()                  __HAL_RCC_GPIOG_CLK_ENABLE()  
+#define LED4_GPIO_CLK_DISABLE()                 __HAL_RCC_GPIOG_CLK_DISABLE()  
 
 #define LEDx_GPIO_CLK_ENABLE(__INDEX__)  do{if((__INDEX__) == 0) LED3_GPIO_CLK_ENABLE(); else \
                                             if((__INDEX__) == 1) LED4_GPIO_CLK_ENABLE(); \
@@ -129,8 +127,8 @@ typedef enum
  */
 #define KEY_BUTTON_PIN                         GPIO_PIN_0
 #define KEY_BUTTON_GPIO_PORT                   GPIOA
-#define KEY_BUTTON_GPIO_CLK_ENABLE()           __GPIOA_CLK_ENABLE()
-#define KEY_BUTTON_GPIO_CLK_DISABLE()          __GPIOA_CLK_DISABLE()
+#define KEY_BUTTON_GPIO_CLK_ENABLE()           __HAL_RCC_GPIOA_CLK_ENABLE()
+#define KEY_BUTTON_GPIO_CLK_DISABLE()          __HAL_RCC_GPIOA_CLK_DISABLE()
 #define KEY_BUTTON_EXTI_IRQn                   EXTI0_IRQn
 
 #define BUTTONx_GPIO_CLK_ENABLE(__INDEX__)     do{if((__INDEX__) == 0) KEY_BUTTON_GPIO_CLK_ENABLE(); \
@@ -157,12 +155,12 @@ typedef enum
 /* User can use this section to tailor I2Cx instance used and associated 
    resources */
 #define DISCOVERY_I2Cx                          I2C3
-#define DISCOVERY_I2Cx_CLOCK_ENABLE()           __I2C3_CLK_ENABLE()
-#define DISCOVERY_I2Cx_FORCE_RESET()            __I2C3_FORCE_RESET()
-#define DISCOVERY_I2Cx_RELEASE_RESET()          __I2C3_RELEASE_RESET()
-#define DISCOVERY_I2Cx_SDA_GPIO_CLK_ENABLE()    __GPIOC_CLK_ENABLE()
-#define DISCOVERY_I2Cx_SCL_GPIO_CLK_ENABLE()    __GPIOA_CLK_ENABLE() 
-#define DISCOVERY_I2Cx_SDA_GPIO_CLK_DISABLE()   __GPIOC_CLK_DISABLE()
+#define DISCOVERY_I2Cx_CLOCK_ENABLE()           __HAL_RCC_I2C3_CLK_ENABLE()
+#define DISCOVERY_I2Cx_FORCE_RESET()            __HAL_RCC_I2C3_FORCE_RESET()
+#define DISCOVERY_I2Cx_RELEASE_RESET()          __HAL_RCC_I2C3_RELEASE_RESET()
+#define DISCOVERY_I2Cx_SDA_GPIO_CLK_ENABLE()    __HAL_RCC_GPIOC_CLK_ENABLE()
+#define DISCOVERY_I2Cx_SCL_GPIO_CLK_ENABLE()    __HAL_RCC_GPIOA_CLK_ENABLE() 
+#define DISCOVERY_I2Cx_SDA_GPIO_CLK_DISABLE()   __HAL_RCC_GPIOC_CLK_DISABLE()
 
 /* Definition for DISCO I2Cx Pins */
 #define DISCOVERY_I2Cx_SCL_PIN                  GPIO_PIN_8
@@ -187,11 +185,11 @@ typedef enum
 
 /*############################### SPIx #######################################*/
 #define DISCOVERY_SPIx                          SPI5
-#define DISCOVERY_SPIx_CLK_ENABLE()             __SPI5_CLK_ENABLE()
+#define DISCOVERY_SPIx_CLK_ENABLE()             __HAL_RCC_SPI5_CLK_ENABLE()
 #define DISCOVERY_SPIx_GPIO_PORT                GPIOF                      /* GPIOF */
 #define DISCOVERY_SPIx_AF                       GPIO_AF5_SPI5
-#define DISCOVERY_SPIx_GPIO_CLK_ENABLE()        __GPIOF_CLK_ENABLE()
-#define DISCOVERY_SPIx_GPIO_CLK_DISABLE()       __GPIOF_CLK_DISABLE()
+#define DISCOVERY_SPIx_GPIO_CLK_ENABLE()        __HAL_RCC_GPIOF_CLK_ENABLE()
+#define DISCOVERY_SPIx_GPIO_CLK_DISABLE()       __HAL_RCC_GPIOF_CLK_DISABLE()
 #define DISCOVERY_SPIx_SCK_PIN                  GPIO_PIN_7                 /* PF.07 */
 #define DISCOVERY_SPIx_MISO_PIN                 GPIO_PIN_8                 /* PF.08 */
 #define DISCOVERY_SPIx_MOSI_PIN                 GPIO_PIN_9                 /* PF.09 */
@@ -210,8 +208,8 @@ typedef enum
 /* Definition for external IT for STMPE811 */
 #define STMPE811_INT_PIN                        GPIO_PIN_15
 #define STMPE811_INT_GPIO_PORT                  GPIOA
-#define STMPE811_INT_CLK_ENABLE()               __GPIOA_CLK_ENABLE()
-#define STMPE811_INT_CLK_DISABLE()              __GPIOA_CLK_DISABLE()
+#define STMPE811_INT_CLK_ENABLE()               __HAL_RCC_GPIOA_CLK_ENABLE()
+#define STMPE811_INT_CLK_DISABLE()              __HAL_RCC_GPIOA_CLK_DISABLE()
 #define STMPE811_INT_EXTI                       EXTI15_10_IRQn
 #define STMPE811_INT_EXTIHandler                EXTI15_10_IRQHandler
 
@@ -233,8 +231,8 @@ typedef enum
   */ 
 #define LCD_NCS_PIN                             GPIO_PIN_2
 #define LCD_NCS_GPIO_PORT                       GPIOC
-#define LCD_NCS_GPIO_CLK_ENABLE()               __GPIOC_CLK_ENABLE()
-#define LCD_NCS_GPIO_CLK_DISABLE()              __GPIOC_CLK_DISABLE()
+#define LCD_NCS_GPIO_CLK_ENABLE()               __HAL_RCC_GPIOC_CLK_ENABLE()
+#define LCD_NCS_GPIO_CLK_DISABLE()              __HAL_RCC_GPIOC_CLK_DISABLE()
 /**             
   * @}
   */ 
@@ -243,13 +241,13 @@ typedef enum
   */
 #define LCD_WRX_PIN                             GPIO_PIN_13
 #define LCD_WRX_GPIO_PORT                       GPIOD
-#define LCD_WRX_GPIO_CLK_ENABLE()               __GPIOD_CLK_ENABLE()
-#define LCD_WRX_GPIO_CLK_DISABLE()              __GPIOD_CLK_DISABLE()
+#define LCD_WRX_GPIO_CLK_ENABLE()               __HAL_RCC_GPIOD_CLK_ENABLE()
+#define LCD_WRX_GPIO_CLK_DISABLE()              __HAL_RCC_GPIOD_CLK_DISABLE()
   
 #define LCD_RDX_PIN                             GPIO_PIN_12
 #define LCD_RDX_GPIO_PORT                       GPIOD
-#define LCD_RDX_GPIO_CLK_ENABLE()               __GPIOD_CLK_ENABLE()
-#define LCD_RDX_GPIO_CLK_DISABLE()              __GPIOD_CLK_DISABLE()
+#define LCD_RDX_GPIO_CLK_ENABLE()               __HAL_RCC_GPIOD_CLK_ENABLE()
+#define LCD_RDX_GPIO_CLK_DISABLE()              __HAL_RCC_GPIOD_CLK_DISABLE()
 
 /*################################ GYROSCOPE #################################*/
 /* Read/Write command */
@@ -268,11 +266,11 @@ typedef enum
   */
 #define GYRO_CS_PIN                             GPIO_PIN_1                  /* PC.01 */
 #define GYRO_CS_GPIO_PORT                       GPIOC                       /* GPIOC */
-#define GYRO_CS_GPIO_CLK_ENABLE()               __GPIOC_CLK_ENABLE()
-#define GYRO_CS_GPIO_CLK_DISABLE()              __GPIOC_CLK_DISABLE()
+#define GYRO_CS_GPIO_CLK_ENABLE()               __HAL_RCC_GPIOC_CLK_ENABLE()
+#define GYRO_CS_GPIO_CLK_DISABLE()              __HAL_RCC_GPIOC_CLK_DISABLE()
 
-#define GYRO_INT_GPIO_CLK_ENABLE()              __GPIOA_CLK_ENABLE()
-#define GYRO_INT_GPIO_CLK_DISABLE()             __GPIOA_CLK_DISABLE()
+#define GYRO_INT_GPIO_CLK_ENABLE()              __HAL_RCC_GPIOA_CLK_ENABLE()
+#define GYRO_INT_GPIO_CLK_DISABLE()             __HAL_RCC_GPIOA_CLK_DISABLE()
 #define GYRO_INT_GPIO_PORT                      GPIOA                       /* GPIOA */
 #define GYRO_INT1_PIN                           GPIO_PIN_1                  /* PA.01 */
 #define GYRO_INT1_EXTI_IRQn                     EXTI1_IRQn 
@@ -293,13 +291,13 @@ typedef enum
 #define EEPROM_I2C_DMA_CHANNEL                  DMA_CHANNEL_3
 #define EEPROM_I2C_DMA_STREAM_TX                DMA1_Stream4
 #define EEPROM_I2C_DMA_STREAM_RX                DMA1_Stream2
-#define EEPROM_I2C_DMA_CLK_ENABLE()             __DMA1_CLK_ENABLE()
+#define EEPROM_I2C_DMA_CLK_ENABLE()             __HAL_RCC_DMA1_CLK_ENABLE()
    
 #define EEPROM_I2C_DMA_TX_IRQn                  DMA1_Stream4_IRQn
 #define EEPROM_I2C_DMA_RX_IRQn                  DMA1_Stream2_IRQn
 #define EEPROM_I2C_DMA_TX_IRQHandler            DMA1_Stream4_IRQHandler
 #define EEPROM_I2C_DMA_RX_IRQHandler            DMA1_Stream2_IRQHandler
-#define EEPROM_I2C_DMA_PREPRIO                  0
+#define EEPROM_I2C_DMA_PREPRIO                  0x0F
 /**
   * @}
   */ 

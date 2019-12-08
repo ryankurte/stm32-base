@@ -2,8 +2,6 @@
   ******************************************************************************
   * @file    stm32f4xx_nucleo.c
   * @author  MCD Application Team
-  * @version V1.2.4
-  * @date    12-January-2016
   * @brief   This file provides set of firmware functions to manage:
   *          - LEDs and push-button available on STM32F4XX-Nucleo Kit 
   *            from STMicroelectronics
@@ -12,7 +10,7 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; COPYRIGHT(c) 2016 STMicroelectronics</center></h2>
+  * <h2><center>&copy; COPYRIGHT(c) 2017 STMicroelectronics</center></h2>
   *
   * Redistribution and use in source and binary forms, with or without modification,
   * are permitted provided that the following conditions are met:
@@ -69,11 +67,11 @@
   */ 
 
 /**
-  * @brief STM32F4xx NUCLEO BSP Driver version number V1.2.4
+  * @brief STM32F4xx NUCLEO BSP Driver version number V1.2.7
   */
 #define __STM32F4xx_NUCLEO_BSP_VERSION_MAIN   (0x01) /*!< [31:24] main version */
 #define __STM32F4xx_NUCLEO_BSP_VERSION_SUB1   (0x02) /*!< [23:16] sub1 version */
-#define __STM32F4xx_NUCLEO_BSP_VERSION_SUB2   (0x04) /*!< [15:8]  sub2 version */
+#define __STM32F4xx_NUCLEO_BSP_VERSION_SUB2   (0x07) /*!< [15:8]  sub2 version */
 #define __STM32F4xx_NUCLEO_BSP_VERSION_RC     (0x00) /*!< [7:0]  release candidate */ 
 #define __STM32F4xx_NUCLEO_BSP_VERSION        ((__STM32F4xx_NUCLEO_BSP_VERSION_MAIN << 24)\
                                              |(__STM32F4xx_NUCLEO_BSP_VERSION_SUB1 << 16)\
@@ -802,7 +800,7 @@ JOYState_TypeDef BSP_JOY_GetState(void)
   HAL_ADC_PollForConversion(&hnucleo_Adc, 10);
   
   /* Check if the continuous conversion of regular channel is finished */
-  if(HAL_ADC_GetState(&hnucleo_Adc) == HAL_ADC_STATE_EOC_REG)
+  if(((HAL_ADC_GetState(&hnucleo_Adc) & HAL_ADC_STATE_EOC_REG) == HAL_ADC_STATE_EOC_REG))
   {
     /* Get the converted value of regular channel */
     keyconvertedvalue = HAL_ADC_GetValue(&hnucleo_Adc);

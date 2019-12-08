@@ -108,14 +108,133 @@ Notes for STM32F4xx_Nucleo_144 Board Drivers</span><span style="font-size: 20pt;
       <table class="MsoNormalTable" style="width: 675pt;" border="0" cellpadding="0" width="900">
         <tbody>
           <tr style="">
-            <td style="padding: 0cm;" valign="top"><span style="font-family: Arial;"><span style="font-style: italic;"><span style="font-weight: bold;"></span></span></span><h2 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;"><a name="History"></a><span style="font-size: 12pt; color: white;">Update History</span></h2><h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; margin-right: 500pt; width: 180px;"><span style="font-size: 10pt; font-family: Arial; color: white;">V1.0.1 / 13-January-2016 <o:p></o:p></span></h3><p class="MsoNormal" style="margin: 4.5pt 0cm 4.5pt 18pt;"><b style=""><u><span style="font-size: 10pt; font-family: Verdana; color: black;">Main
+            <td style="padding: 0cm;" valign="top"><span style="font-family: Arial;"><span style="font-style: italic;"><span style="font-weight: bold;"></span></span></span><p class="MsoListParagraph" style="text-align: left;"><span style="font-size: 11pt; font-family: &quot;Arial&quot;,sans-serif;">The BSP (Board Specific
+Package) drivers are parts of the STM32Cube package based on the HAL
+drivers and provide a set of high level APIs relative to the hardware
+components and features in the evaluation boards, discovery kits and nucleo
+boards coming with the STM32Cube package for a given STM32 serie.</span></p>
+            <p class="MsoListParagraph" style="text-align: left;"><span style="font-size: 11pt; font-family: &quot;Arial&quot;,sans-serif;">The BSP drivers allow a quick access to the boards&#8217;
+services using high level APIs and without any specific configuration as the
+link with the HAL and the external components is done in intrinsic within the drivers. <br>
+            </span></p>
+            <p class="MsoListParagraph" style="text-align: left;"><span style="font-size: 11pt; font-family: &quot;Arial&quot;,sans-serif;">From project settings points of view, user has only
+to add the necessary driver&#8217;s files in the workspace and call the needed
+functions from examples. However some low level
+configuration functions are weak and can be overridden by the applications if user
+wants to change some BSP drivers default behavior.</span></p>
+
+
+            <h2 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;"><span style="font-size: 12pt; color: white;">&nbsp;&nbsp;&nbsp; Update History</span></h2><h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; margin-right: 500pt; width: 224px;"><span style="font-size: 10pt; font-family: Arial; color: white;">V1.0.3 / 25-September-2017 <o:p></o:p></span></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <p class="MsoNormal" style="margin: 4.5pt 0cm 4.5pt 18pt;"><b style=""><u><span style="font-size: 10pt; font-family: Verdana; color: black;">Main
+Changes<o:p></o:p></span></u></b></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+
+
+
+
+            
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+
+
+
+
+            
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+
+
+
+            
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+
+
+
+            
+            
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+
+            <span style="font-size: 10pt; font-family: Verdana;"></span>
+            
+            
+            <ul style="list-style-type: square;"><li><span style="font-size: 10pt; font-family: Verdana;"></span><span style="font-family: Verdana; font-size: 10pt;">Add general description of BSP drivers</span></li><li><span style="font-family: Verdana; font-size: 10pt;">Remove date &amp; version</span></li></ul><h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; margin-right: 500pt; width: 180px;"><span style="font-size: 10pt; font-family: Arial; color: white;">V1.0.2 / 22-April-2016 <o:p></o:p></span></h3><p class="MsoNormal" style="margin: 4.5pt 0cm 4.5pt 18pt;"><b style=""><u><span style="font-size: 10pt; font-family: Verdana; color: black;">Main
 Changes</span></u></b><b style=""><u><span style="font-size: 10pt; font-family: Verdana; color: black;"><o:p></o:p></span></u></b></p>
 
 
 
             
             
-            <ul style="margin-top: 0cm;" type="square"><li class="MsoNormal" style="margin: 4.5pt 0in; font-size: 12pt; font-family: 'Times New Roman'; color: black;"><span style="color: rgb(0, 0, 0); font-family: Verdana,sans-serif; font-size: 13.3333px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; display: inline ! important; float: none;">General&nbsp;updates to fix&nbsp;doxygen errors</span><span style="font-size: 10pt; font-family: Verdana;"></span></li><li class="MsoNormal" style="margin: 4.5pt 0in; font-size: 12pt; font-family: 'Times New Roman'; color: black;"><span style="font-size: 10pt; font-family: Verdana;">Add STM32F4-Nucleo_144_BSP_User_Manual.chm file</span><br><span style="font-size: 10pt; font-family: Arial; color: white;"></span></li></ul><h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; margin-right: 500pt; width: 202px;"><span style="font-size: 10pt; font-family: Arial; color: white;">V1.0.0 / 13-November-2015</span></h3>
+            <ul style="margin-top: 0cm;" type="square"><li class="MsoNormal" style="margin: 4.5pt 0in; font-size: 12pt; font-family: 'Times New Roman'; color: black;"><span style="color: rgb(0, 0, 0); font-family: Verdana,sans-serif; font-size: 13.3333px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; display: inline ! important; float: none;">BSP_JOY_GetState() API: update the check condition for the ADC continuous conversion of regular channel. </span><span style="font-size: 10pt; font-family: Verdana;"></span></li></ul><h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; margin-right: 500pt; width: 211px;"><span style="font-size: 10pt; font-family: Arial; color: white;">V1.0.1 / 13-January-2016 <o:p></o:p></span></h3><p class="MsoNormal" style="margin: 4.5pt 0cm 4.5pt 18pt;"><b style=""><u><span style="font-size: 10pt; font-family: Verdana; color: black;">Main
+Changes</span></u></b><b style=""><u><span style="font-size: 10pt; font-family: Verdana; color: black;"><o:p></o:p></span></u></b></p>
+
+
+
+            
+            
+            <ul style="margin-top: 0cm;" type="square"><li class="MsoNormal" style="margin: 4.5pt 0in; font-size: 12pt; font-family: 'Times New Roman'; color: black;"><span style="color: rgb(0, 0, 0); font-family: Verdana,sans-serif; font-size: 13.3333px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; display: inline ! important; float: none;">General&nbsp;updates to fix&nbsp;doxygen errors</span><span style="font-size: 10pt; font-family: Verdana;"></span></li><li class="MsoNormal" style="margin: 4.5pt 0in; font-size: 12pt; font-family: 'Times New Roman'; color: black;"><span style="font-size: 10pt; font-family: Verdana;">Add STM32F4-Nucleo_144_BSP_User_Manual.chm file</span><br><span style="font-size: 10pt; font-family: Arial; color: white;"></span></li></ul><h3 style="background: rgb(51, 102, 255) none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; margin-right: 500pt; width: 216px;"><span style="font-size: 10pt; font-family: Arial; color: white;">V1.0.0 / 13-November-2015</span></h3>
 
             <p class="MsoNormal" style="margin: 4.5pt 0cm 4.5pt 18pt;"><b style=""><u><span style="font-size: 10pt; font-family: Verdana; color: black;">Main
 Changes<o:p></o:p></span></u></b></p>

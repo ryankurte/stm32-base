@@ -2,8 +2,6 @@
   ******************************************************************************
   * @file    cs43l22.h
   * @author  MCD Application Team
-  * @version V2.0.2
-  * @date    06-October-2015
   * @brief   This file contains all the functions prototypes for the cs43l22.c driver.
   ******************************************************************************
   * @attention

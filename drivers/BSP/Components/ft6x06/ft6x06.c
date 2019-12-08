@@ -2,14 +2,14 @@
   ******************************************************************************
   * @file    ft6x06.c
   * @author  MCD Application Team
-  * @version V1.0.0
-  * @date    03-August-2015
+  * @version V1.0.1
+  * @date    03-May-2016
   * @brief   This file provides a set of functions needed to manage the FT6X06
   *          IO Expander devices.
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; COPYRIGHT(c) 2015 STMicroelectronics</center></h2>
+  * <h2><center>&copy; COPYRIGHT(c) 2016 STMicroelectronics</center></h2>
   *
   * Redistribution and use in source and binary forms, with or without modification,
   * are permitted provided that the following conditions are met:
@@ -82,7 +82,6 @@ TS_DrvTypeDef ft6x06_ts_drv =
   ft6x06_TS_ClearIT,
   ft6x06_TS_ITStatus,
   ft6x06_TS_DisableIT
-
 };
 
 /* ft6x06 instances by address */
@@ -152,7 +151,7 @@ void ft6x06_Init(uint16_t DeviceAddr)
       /* Initialize IO BUS layer */
       TS_IO_Init(); 
     }
-  }        
+  }
 }
 
 /**
@@ -335,7 +334,6 @@ void ft6x06_TS_ClearIT(uint16_t DeviceAddr)
 /**** NEW FEATURES enabled when Multi-touch support is enabled ****/
 
 #if (TS_MULTI_TOUCH_SUPPORTED == 1)
-
 /**
   * @brief  Get the last touch gesture identification (zoom, move up/down...).
   * @param  DeviceAddr: Device address on communication Bus (I2C slave address of FT6x06).

@@ -2,14 +2,14 @@
   ******************************************************************************
   * @file    ili9325.h
   * @author  MCD Application Team
-  * @version V1.0.2
-  * @date    02-December-2014
+  * @version V1.2.3
+  * @date    04-May-2016
   * @brief   This file contains all the functions prototypes for the ili9325.c
   *          driver.
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; COPYRIGHT(c) 2014 STMicroelectronics</center></h2>
+  * <h2><center>&copy; COPYRIGHT(c) 2016 STMicroelectronics</center></h2>
   *
   * Redistribution and use in source and binary forms, with or without modification,
   * are permitted provided that the following conditions are met:
@@ -202,17 +202,17 @@
   */ 
 void     ili9325_Init(void);
 uint16_t ili9325_ReadID(void);
-void     ili9325_WriteReg(uint8_t LCD_Reg, uint16_t LCD_RegValue);
-uint16_t ili9325_ReadReg(uint8_t LCD_Reg);
+void     ili9325_WriteReg(uint8_t LCDReg, uint16_t LCDRegValue);
+uint16_t ili9325_ReadReg(uint8_t LCDReg);
 
 void     ili9325_DisplayOn(void);
 void     ili9325_DisplayOff(void);
 void     ili9325_SetCursor(uint16_t Xpos, uint16_t Ypos);
-void     ili9325_WritePixel(uint16_t Xpos, uint16_t Ypos, uint16_t RGB_Code);
+void     ili9325_WritePixel(uint16_t Xpos, uint16_t Ypos, uint16_t RGBCode);
 uint16_t ili9325_ReadPixel(uint16_t Xpos, uint16_t Ypos);
 
-void     ili9325_DrawHLine(uint16_t RGB_Code, uint16_t Xpos, uint16_t Ypos, uint16_t Length);
-void     ili9325_DrawVLine(uint16_t RGB_Code, uint16_t Xpos, uint16_t Ypos, uint16_t Length);
+void     ili9325_DrawHLine(uint16_t RGBCode, uint16_t Xpos, uint16_t Ypos, uint16_t Length);
+void     ili9325_DrawVLine(uint16_t RGBCode, uint16_t Xpos, uint16_t Ypos, uint16_t Length);
 void     ili9325_DrawBitmap(uint16_t Xpos, uint16_t Ypos, uint8_t *pbmp);
 void     ili9325_DrawRGBImage(uint16_t Xpos, uint16_t Ypos, uint16_t Xsize, uint16_t Ysize, uint8_t *pdata);
 
@@ -227,9 +227,9 @@ extern LCD_DrvTypeDef   ili9325_drv;
 
 /* LCD IO functions */
 void     LCD_IO_Init(void);
-void     LCD_IO_WriteData(uint16_t RegValue);
+void     LCD_IO_WriteMultipleData(uint8_t *pData, uint32_t Size);
 void     LCD_IO_WriteReg(uint8_t Reg);
-uint16_t LCD_IO_ReadData(void);
+uint16_t LCD_IO_ReadData(uint16_t Reg);
 
 /**
   * @}

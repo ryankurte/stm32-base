@@ -2,14 +2,12 @@
   ******************************************************************************
   * @file    stm32f429i_discovery_io.c
   * @author  MCD Application Team
-  * @version V2.1.3
-  * @date    13-January-2016
   * @brief   This file provides a set of functions needed to manage the STMPE811
   *          IO Expander device mounted on STM32F429I-Discovery Kit.
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; COPYRIGHT(c) 2016 STMicroelectronics</center></h2>
+  * <h2><center>&copy; COPYRIGHT(c) 2017 STMicroelectronics</center></h2>
   *
   * Redistribution and use in source and binary forms, with or without modification,
   * are permitted provided that the following conditions are met:

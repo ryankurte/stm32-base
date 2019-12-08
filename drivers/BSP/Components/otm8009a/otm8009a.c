@@ -2,14 +2,14 @@
   ******************************************************************************
   * @file    otm8009a.c
   * @author  MCD Application Team
-  * @version V1.0.0
-  * @date    03-August-2015
+  * @version V1.0.2
+  * @date    27-January-2017
   * @brief   This file provides the LCD Driver for KoD KM-040TMP-02-0621 (WVGA)
   *          DSI LCD Display OTM8009A.   
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; COPYRIGHT(c) 2015 STMicroelectronics</center></h2>
+  * <h2><center>&copy; COPYRIGHT(c) 2017 STMicroelectronics</center></h2>
   *
   * Redistribution and use in source and binary forms, with or without modification,
   * are permitted provided that the following conditions are met:
@@ -153,7 +153,8 @@ const uint8_t ShortRegData46[] = {0xCF, 0x00};
 const uint8_t ShortRegData47[] = {0xC5, 0x66};
 const uint8_t ShortRegData48[] = {OTM8009A_CMD_NOP, 0xB6};
 const uint8_t ShortRegData49[] = {0xF5, 0x06};
-
+const uint8_t ShortRegData50[] = {OTM8009A_CMD_NOP, 0xB1};
+const uint8_t ShortRegData51[] = {0xC6, 0x06};
 /**
   * @}
   */
@@ -354,6 +355,10 @@ uint8_t OTM8009A_Init(uint32_t ColorCoding, uint32_t orientation)
   DSI_IO_WriteCmd(0, (uint8_t *)ShortRegData49);
   /////////////////////////////////////////////////////////////////////////////
 
+  /* CABC LEDPWM frequency adjusted to 19,5kHz */
+  DSI_IO_WriteCmd(0, (uint8_t *)ShortRegData50);
+  DSI_IO_WriteCmd(0, (uint8_t *)ShortRegData51);
+  
   /* Exit CMD2 mode */
   DSI_IO_WriteCmd(0, (uint8_t *)ShortRegData1);
   DSI_IO_WriteCmd( 3, (uint8_t *)lcdRegData25);

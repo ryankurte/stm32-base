@@ -2,8 +2,6 @@
   ******************************************************************************
   * @file    stm32f4xx_nucleo.h
   * @author  MCD Application Team
-  * @version V1.2.4
-  * @date    12-January-2016
   * @brief   This file contains definitions for:
   *          - LEDs and push-button available on STM32F4XX-Nucleo Kit 
   *            from STMicroelectronics
@@ -12,7 +10,7 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; COPYRIGHT(c) 2016 STMicroelectronics</center></h2>
+  * <h2><center>&copy; COPYRIGHT(c) 2017 STMicroelectronics</center></h2>
   *
   * Redistribution and use in source and binary forms, with or without modification,
   * are permitted provided that the following conditions are met:
@@ -119,8 +117,8 @@ typedef enum
 
 #define LED2_PIN                                GPIO_PIN_5
 #define LED2_GPIO_PORT                          GPIOA
-#define LED2_GPIO_CLK_ENABLE()                  __GPIOA_CLK_ENABLE()
-#define LED2_GPIO_CLK_DISABLE()                 __GPIOA_CLK_DISABLE()  
+#define LED2_GPIO_CLK_ENABLE()                  __HAL_RCC_GPIOA_CLK_ENABLE()
+#define LED2_GPIO_CLK_DISABLE()                 __HAL_RCC_GPIOA_CLK_DISABLE()  
 
 #define LEDx_GPIO_CLK_ENABLE(__INDEX__)         LED2_GPIO_CLK_ENABLE()
 #define LEDx_GPIO_CLK_DISABLE(__INDEX__)        LED2_GPIO_CLK_DISABLE()

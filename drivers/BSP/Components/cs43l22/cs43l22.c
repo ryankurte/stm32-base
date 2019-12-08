@@ -2,8 +2,6 @@
   ******************************************************************************
   * @file    cs43l22.c
   * @author  MCD Application Team
-  * @version V2.0.2
-  * @date    06-October-2015
   * @brief   This file provides the CS43L22 Audio Codec driver.   
   ******************************************************************************
   * @attention
@@ -63,7 +61,7 @@
 /** @defgroup CS43L22_Private_Defines
   * @{
   */
-#define VOLUME_CONVERT(Volume)    (((Volume) > 100)? 100:((uint8_t)(((Volume) * 255) / 100)))  
+#define VOLUME_CONVERT(Volume)    (((Volume) > 100)? 255:((uint8_t)(((Volume) * 255) / 100)))  
 /* Uncomment this line to enable verifying data sent to codec after each write 
    operation (for debug purpose) */
 #if !defined (VERIFY_WRITTENDATA)  
@@ -339,7 +337,8 @@ uint32_t cs43l22_Stop(uint16_t DeviceAddr, uint32_t CodecPdwnMode)
   * @brief Sets higher or lower the codec volume level.
   * @param DeviceAddr: Device address on communication Bus.   
   * @param Volume: a byte value from 0 to 255 (refer to codec registers 
-  *         description for more details).
+  *                description for more details).
+  *         
   * @retval 0 if correct communication, else wrong communication
   */
 uint32_t cs43l22_SetVolume(uint16_t DeviceAddr, uint8_t Volume)
@@ -347,7 +346,7 @@ uint32_t cs43l22_SetVolume(uint16_t DeviceAddr, uint8_t Volume)
   uint32_t counter = 0;
   uint8_t convertedvol = VOLUME_CONVERT(Volume);
 
-  if(Volume > 0xE6)
+  if(convertedvol > 0xE6)
   {
     /* Set the Master volume */
     counter += CODEC_IO_Write(DeviceAddr, CS43L22_REG_MASTER_A_VOL, convertedvol - 0xE7); 
