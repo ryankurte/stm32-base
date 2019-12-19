@@ -56,8 +56,8 @@ include(${PROJECT_SOURCE_DIR}/example.cmake)
 ##### Outputs #####
 
 # Generate executable and link
-add_executable(${TARGET} ${PROJECT_SOURCES})
-target_link_libraries(${TARGET} ${LIBS})
+add_executable(${TARGET}.elf ${PROJECT_SOURCES})
+target_link_libraries(${TARGET}.elf ${LIBS})
 
 ##### Post build (require target to be defined) #####
 

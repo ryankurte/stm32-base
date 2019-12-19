@@ -7,18 +7,18 @@ configure_file(${CMAKE_CURRENT_LIST_DIR}/flash.in ${CMAKE_CURRENT_BINARY_DIR}/fl
 
 #Add JLink commands
 add_custom_target(debug 
-	COMMAND ${DEBUGGER} -tui -command ${CMAKE_CURRENT_LIST_DIR}/remote.gdbconf ${CMAKE_CURRENT_BINARY_DIR}/${TARGET} 
-	DEPENDS ${TARGET}
+	COMMAND ${DEBUGGER} -tui -command ${CMAKE_CURRENT_LIST_DIR}/remote.gdbconf ${CMAKE_CURRENT_BINARY_DIR}/${TARGET}.elf 
+	DEPENDS ${TARGET}.elf
 	)
 
 add_custom_target(debug-server 
 	COMMAND JLinkGDBServer -device ${DEVICE} -speed 4000 -if SWD
-	DEPENDS ${TARGET}
+	DEPENDS ${TARGET}.elf
 	)
 
 add_custom_target(flash 
 	COMMAND JLinkExe -device ${DEVICE} -speed 4000 -if SWD -CommanderScript ${CMAKE_CURRENT_BINARY_DIR}/flash.jlink 
-	DEPENDS ${TARGET}
+	DEPENDS ${TARGET}.elf
 	)
 
 add_custom_target(erase 
